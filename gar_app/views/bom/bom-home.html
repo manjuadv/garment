@@ -1,0 +1,212 @@
+<form role="form">
+    <fieldset class="form-group">
+        <div class="row">
+            <label for="sel-buyer" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Buyer</label>
+            <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                <div ng-dropdown-multiselect="" options="buyers" selected-model="selectedBuyer" extra-settings="ddBuyersSettings"></div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="row">
+            <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Order No</label>
+            <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                <input id="order-no" type="text" class="form-control form-control-sm" placeholder="Order No">
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="row">
+            <label for="order-date" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Order Date</label>
+            <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                <input id="order-date" type="text" class="form-control form-control-sm" placeholder="Order Date">
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="row">
+            <label for="order-date" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Colors</label>
+            <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                <div ng-dropdown-multiselect="" options="colors" selected-model="selectedColors" checkboxes="true" extra-settings="ddColorsSettings" events='ddColorsEvents'></div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 100%">
+                <label class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Style No</label>
+                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                    <input ng-model='colorSizes.styleNo' type="text" class="form-control form-control-sm" placeholder="Style No">
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th ng-repeat="col in colorSizes.colors">{{col.label}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="sizeRow in colorSizes.sizeRows">
+            <th scope="row">
+                <input ng-model='sizeRow.label' type="text" class="form-control form-control-sm" placeholder="Size" ng-blur='sizeEdited()'>
+            </th>
+            <td ng-repeat="col in colorSizes.colors">
+                <div>
+                    <input ng-model='sizeRow.amounts[$index].quantity' type="text" class="form-control form-control-sm" placeholder="Quantity">
+                    <input ng-model='sizeRow.amounts[$index].unitPrice' type="text" class="form-control form-control-sm" placeholder="Unit Price">
+                    <span ng-if="sizeRow.amounts[$index].quantity>0 && sizeRow.amounts[$index].unitPrice>0">{{sizeRow.amounts[$index].quantity * sizeRow.amounts[$index].unitPrice}}</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <input type="text" class="form-control form-control-sm" placeholder="Size" ng-blur='sizeAdded($event)'>
+            </th>
+            <td ng-repeat="col in colorSizes.colors">
+                <div>
+                    <input type="text" class="form-control form-control-sm" placeholder="Quantity">
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <span>Total Quantity : </span>
+                <span>{{getTotalQuantity()}}</span>
+            </td>
+            <td>
+                <span>Total Net Amount : </span>
+                <span>{{getTotalNetAmount()}}</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm">Save Buyer Order</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">BOM</h3>
+    </div>
+    <div class="panel-body">
+        <form role="form">
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="sel-buyer" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Initiate Date</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.Initiate_date" type="text" class="form-control form-control-sm" placeholder="Initiate Date">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Revision No</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.Revision_No" type="text" class="form-control form-control-sm" placeholder="Revision No">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Revised Date</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.Revised_date" type="text" class="form-control form-control-sm" placeholder="Revised Date">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Customer</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <label class="col-form-label">{{selectedBuyer[0].label}}</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Style</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <label class="col-form-label">{{colorSizes.styleNo}}</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Description</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.Description" type="text" class="form-control form-control-sm" placeholder="Description">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Season</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.Season" type="text" class="form-control form-control-sm" placeholder="Season">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="sel-buyer" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">PCD</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.PCD" type="text" class="form-control form-control-sm" placeholder="PCD">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="sel-buyer" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Delivery</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <input ng-model="bom.Delivery" type="text" class="form-control form-control-sm" placeholder="Delivery">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="order-no" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-form-label">Quantity</label>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                        <label class="col-form-label">{{getTotalQuantity()}}</label>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <table class="table table-bordered">
+            <thead>
+                <th scope="col">Split</th>
+                <th style='width:80%'>Sizes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="split in bom.Splits">
+                    <th scope="row">
+                        <label class="col-form-label">{{split.label}}</label>
+                    </th>
+                    <td style='width:80%'>
+                        <label ng-repeat="split_size in split.split_sizes" class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" ng-model="split_size.value"> {{split_size.label}}
+                          </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <input type="text" class="form-control form-control-sm" placeholder="Split Name" ng-blur='splitAdded($event)'>
+                    </th>
+                    <td style='width:80%'>
+                        <label ng-repeat="size in sizes" class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" ng-model="split_size.value"> {{size.label}}
+                          </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div ui-grid="gridOptions" ui-grid-edit class="myGrid"></div>
+        <div>{{bom.Splits | json}}</div>
+    </div>
+</div>
