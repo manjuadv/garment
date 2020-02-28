@@ -1,4 +1,4 @@
-var app = angular.module("gApp", ['ngRoute', 'angularjs-dropdown-multiselect', 'ui.grid', 'ui.grid.edit']);
+var app = angular.module("gApp", ['ngRoute', 'angularjs-dropdown-multiselect', 'ui.grid', 'ui.grid.edit', 'ui.grid.grouping']);
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {

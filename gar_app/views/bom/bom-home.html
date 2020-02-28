@@ -205,8 +205,25 @@
                 </tr>
             </tbody>
         </table>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Fabrics & Lace</h3>
+            </div>
+            <div class="panel-body">
+                <div ui-grid="gridOptions" ui-grid-edit ui-grid-grouping class="myGrid"></div>
+                <button type="button" class="btn btn-primary btn-sm" ng-click="addNewFabRow()">New</button>
+            </div>
+        </div>
 
-        <div ui-grid="gridOptions" ui-grid-edit class="myGrid"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Trims</h3>
+            </div>
+            <div class="panel-body">
+                <div ui-grid="gridOptionsTrims" ui-grid-edit ui-grid-grouping class="myGrid"></div>
+                <button type="button" class="btn btn-primary btn-sm" ng-click="addNewTrimsRow()">New</button>
+            </div>
+        </div>
         <div>{{bom.Splits | json}}</div>
     </div>
 </div>

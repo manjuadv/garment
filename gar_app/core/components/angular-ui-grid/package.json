@@ -1,0 +1,112 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular-ui-grid",
+        "scope": null,
+        "escapedName": "angular-ui-grid",
+        "name": "angular-ui-grid",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Data\\repos\\garments\\gar_app\\core\\components\\ng-grid"
+    ]
+  ],
+  "_from": "angular-ui-grid@latest",
+  "_hasShrinkwrap": false,
+  "_id": "angular-ui-grid@4.8.3",
+  "_inCache": true,
+  "_location": "/angular-ui-grid",
+  "_nodeVersion": "10.15.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/angular-ui-grid_4.8.3_1571673076209_0.29149132636810915"
+  },
+  "_npmUser": {
+    "name": "mportuga",
+    "email": "marceloquarion@gmail.com"
+  },
+  "_npmVersion": "6.11.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular-ui-grid",
+    "scope": null,
+    "escapedName": "angular-ui-grid",
+    "name": "angular-ui-grid",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-ui-grid/-/angular-ui-grid-4.8.3.tgz",
+  "_shasum": "bd49f6da243223dd96a2c11db4a58ceea562ee2d",
+  "_shrinkwrap": null,
+  "_spec": "angular-ui-grid",
+  "_where": "C:\\Data\\repos\\garments\\gar_app\\core\\components\\ng-grid",
+  "bugs": {
+    "url": "https://github.com/angular-ui/ui-grid/issues"
+  },
+  "dependencies": {
+    "angular": ">=1.4.0 1.7.x"
+  },
+  "description": "A data grid for Angular",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-Act6ftPzRMr8SKynMk/KiuIY7mvhkNnMEcDAD0rEBLdRVYk+9VTdzumGcMPj7KQae3rmMWegMi5R60Z+YxYPKA==",
+    "shasum": "bd49f6da243223dd96a2c11db4a58ceea562ee2d",
+    "tarball": "https://registry.npmjs.org/angular-ui-grid/-/angular-ui-grid-4.8.3.tgz",
+    "fileCount": 220,
+    "unpackedSize": 4940792,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdrdP0CRA9TVsSAnZWagAAe0cP/i0zMXlJTCDy2uVJ80J+\nm2wZzQMNmF5V2ICtbevtk9e6Bm22yMjXI/amBcLpJpL2Rj6oWEum3GfeaY/k\nALetjONopDSK7OJIA8KlSWgf0te4W0d13kChIYf7rXA/oiqCdGtakgN4gdG8\nLcjUPQ3OP1ayF6cIqvgWRLh9FekCY4tM4J8ujAnRFYgorHJ661HgVxY0vRSz\ntoEWtzSn5N4zoAZK3TrCPhiX+1VOMMBgpSemu2WBwVWuIAzftC1MvCnglq2i\nUn60lCSdrkOfGXy7NFddnsCm7iptp0VmDydQgpu+FdbUd146ZYAUeeU5pnYB\nIanjFhJUN13/KjvIWFQ3WvjtBaWGJf+yhF6Wc7bAb3qC6083WB8r/Duuievl\nrcmC+yEx6D6edNoN72AQzZBMwuV37VjbagzcV2XGvin76XiLirOXfmwSSoLN\nRLUuKIZnSnHGkLxFtA7ygTptkhud7YXWd4HraslbdF2Qn5mR6C46kqE9WCEm\nqWlHMxj7TpAv10Z2Q5d0PflZuLNESQmVNzg4erHKx1vH3/u9KuWNqJCOhxfl\n43SvyTzEezA2hMjJZVJ/9ZBPn09PaQFPFdatMH/4s87F7Nl60dOKYMVEsu95\nkUZVby7rsk63Eqi/ZlpVg3cKewzIK48TiYcU6I58MqokKdQJoNOmCEkHEhuU\nGqhB\r\n=+YZY\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "homepage": "http://ui-grid.info",
+  "ignore": [],
+  "keywords": [
+    "angular",
+    "ng-grid",
+    "nggrid",
+    "grid",
+    "angularjs",
+    "slickgrid",
+    "kogrid",
+    "ui-grid",
+    "ui grid",
+    "data grid"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "c0bra",
+      "email": "emailc0bra@gmail.com"
+    },
+    {
+      "name": "dlgski",
+      "email": "dana.greenberg@kronos.com"
+    },
+    {
+      "name": "jlleitschuh",
+      "email": "Jlleitschuh@wpi.edu"
+    },
+    {
+      "name": "mportuga",
+      "email": "marceloquarion@gmail.com"
+    },
+    {
+      "name": "swalters",
+      "email": "swalters@singletreetech.com"
+    }
+  ],
+  "name": "angular-ui-grid",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular-ui/ui-grid.git"
+  },
+  "version": "4.8.3"
+}
